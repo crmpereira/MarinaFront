@@ -1,0 +1,36 @@
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.action-column{
+  flex: 0 0 120px;
+}
+
+
+.action-column-header{
+  flex: 0 0 95px;
+}
+
+
+.column-reg{
+  text-align: left;
+}
+
+
+
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 8px;
+  color:  primary
+}

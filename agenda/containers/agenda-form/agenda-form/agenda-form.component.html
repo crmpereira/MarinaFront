@@ -1,0 +1,65 @@
+<mat-card>
+  <mat-toolbar color="primary">Agendamento</mat-toolbar>
+  <mat-card-content>
+     <form [formGroup]="form">
+
+      <mat-form-field class="min-width" >
+        <mat-label>Data Agenda</mat-label>
+        <input matInput  type="datetime-local"  placeholder="Data da Agenda" formControlName="dh_solicit_agenda" #dh_solicit_agenda>
+        <mat-error *ngIf="form.get('dh_solicit_agenda')?.invalid">{{formUtils.getErrorMessage(form, "dh_solicit_agenda")}}</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="min-width" >
+        <mat-label>Situacao</mat-label>
+        <mat-select  matInput formControlName="situacao_agenda"  #situacao_agenda   >
+          <mat-option [value]="1">ATIVA</mat-option>
+          <mat-option [value]="2">CANCELADA</mat-option>
+          <mat-option [value]="3">CONCLUIDA</mat-option>
+        </mat-select>
+        <mat-hint align="end">{{situacao_agenda.value || 0}} / 1</mat-hint>
+        <mat-error *ngIf="form.get('situacao_agenda')?.invalid">{{formUtils.getErrorMessage(form, "situacao_agenda")}}</mat-error>
+      </mat-form-field>
+
+    <div class="client-embarcation-section">
+      <mat-toolbar color="primary">
+        <span>Cliente e Embarcação</span>
+        <button mat-icon-button color="accent" >
+        </button>
+      </mat-toolbar>
+
+      <div class="form-row">
+          <mat-form-field  class="full-width" >
+            <mat-label>Nome do Cliente</mat-label>
+            <mat-select formControlName="cliente" (selectionChange)="onChangeCliente(cliente)"  #cliente   >
+              <mat-option *ngFor="let cliente of clientes" [value]="cliente">
+                {{cliente.nm_cliente}}
+              </mat-option>
+            </mat-select>
+            <mat-hint align="end">{{cliente.value || 0}} / 50</mat-hint>
+          </mat-form-field>
+       </div>
+       <div class="form-row">
+          <mat-form-field  class="full-width" >
+            <mat-label>Embarcações do Cliente</mat-label>
+            <mat-select formControlName="embarcacao"  #embarcacao  >
+              <mat-option *ngFor="let embarc of embarcacoes" [value]="embarc">
+                {{embarc.nm_embarc}}
+              </mat-option>
+            </mat-select>
+            <mat-hint align="end">{{embarcacao.value || 0}} / 50</mat-hint>
+          </mat-form-field>
+        </div>
+    </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions >
+    <button  mat-raised-button color="primary" matTooltip="Pressione para Salvar"    (click)="onSubmit()"       >Salvar</button>
+    <button  mat-raised-button  matTooltip="Pressione para Cancelar"   (click)="onCancel()"   >Cancelar</button>
+  </mat-card-actions>
+
+
+
+</mat-card>
+

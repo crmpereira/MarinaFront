@@ -1,0 +1,58 @@
+<mat-table [dataSource]="agenda"       >
+  <ng-container matColumnDef="id_agenda">
+   <th mat-header-cell *matHeaderCellDef>Id</th>
+   <mat-cell *matCellDef="let age">{{age.id_agenda}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dh_solicit_agenda">
+    <mat-header-cell     *matHeaderCellDef>Solicitação</mat-header-cell>
+    <mat-cell  class="column-reg"  *matCellDef="let age">{{age.dh_solicit_agenda}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cliente">
+    <mat-header-cell *matHeaderCellDef  >Cliente</mat-header-cell>
+    <mat-cell     *matCellDef="let age">{{age.cliente.nm_cliente}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="id_cliente">
+    <mat-cell     *matCellDef="let age">{{age.cliente.id_cliente}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="embarcacao">
+    <mat-header-cell *matHeaderCellDef>Embarcacao</mat-header-cell>
+    <mat-cell *matCellDef="let age">{{age.embarcacao.nm_embarc}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="id_embarc">
+    <mat-cell     *matCellDef="let age">{{age.cliente.id_embarc}}</mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="situacaoAgenda">
+    <mat-header-cell *matHeaderCellDef>Situação</mat-header-cell>
+    <mat-cell *matCellDef="let age">{{age.situacaoAgenda}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions" >
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+    <button mat-mini-fab  color="primary" aria-label="Adicionar"  (click)="onAdd()">
+        <mat-icon  >plus_one</mat-icon>
+    </button>
+    <button mat-mini-fab  color="primary" aria-label="Voltar"  (click)="onBack()">
+      <mat-icon>home</mat-icon>
+  </button>
+  </mat-header-cell>
+
+  <mat-header-cell *matCellDef = "let age"  class="action-column"  >
+    <button mat-icon-button color="primary" arial-label="Editar"  (click)="onEdit(age)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn"   (click)="onDelete(age)">
+      <mat-icon arial-label="Remover"  >delete</mat-icon>
+    </button>
+  </mat-header-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

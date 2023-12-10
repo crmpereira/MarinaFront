@@ -1,0 +1,14 @@
+<p></p>
+<mat-card>
+  <mat-toolbar color="primary">Agendamentos</mat-toolbar>
+  <div class="colum-flex" >
+  <app-agenda-list *ngIf="agenda | async as agenda"
+  [agenda]="agenda"
+  (add)="onAdd()"
+  (edit)="onEdit($event)"
+  (remove)="onRemove($event)"
+  ></app-agenda-list>
+  </div>
+</mat-card>
+
+

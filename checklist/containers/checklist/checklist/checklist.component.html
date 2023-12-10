@@ -1,0 +1,17 @@
+<p></p>
+<mat-card>
+
+  <mat-toolbar color="primary">Check List: Agendadas</mat-toolbar>
+  <div class="colum-flex">
+    <app-checklist-list *ngIf="checklist |async as checklist" [checklist]="checklist"
+     (edit)="onEdit($event)"    >
+    </app-checklist-list>
+  <ng-template #loading>
+    <div class="loagind-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+  </div>
+
+</mat-card>
+

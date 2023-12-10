@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-toolbar color="primary">Item Check</mat-toolbar>
+
+  <mat-card-content>
+     <form [formGroup]="form">
+
+      <mat-form-field class="full-width" >
+        <mat-label>Situacao</mat-label>
+        <mat-select  matInput  formControlName="situacao_check"  >
+          <mat-option [value]=1>Pendente</mat-option>
+          <mat-option [value]=2>Executado</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('situacao_check')?.invalid">{{formUtils.getErrorMessage(form, "situacao_check")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" >
+        <mat-label>Tipo</mat-label>
+        <mat-select   formControlName="tipo_check"     >
+          <mat-option [value]="1">GASOLINA</mat-option>
+          <mat-option [value]="2">SEGURANÇA</mat-option>
+          <mat-option [value]="3">MOTOR</mat-option>
+          <mat-option [value]="4">CORDAS</mat-option>
+          <mat-option [value]="5">CASCO</mat-option>
+          <mat-option [value]="6">AGUA</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('tipo_check')?.invalid">{{formUtils.getErrorMessage(form, "tipo_check")}}</mat-error>
+      </mat-form-field>
+
+
+
+    </form>
+  </mat-card-content>
+  <mat-card-actions >
+    <button  mat-raised-button color="primary" matTooltip="Pressione para Salvar"  (click)="onSubmit()"  >Salvar</button>
+    <button  mat-raised-button  matTooltip="Pressione para Cancelar"  (click)="onCancel()" >Cancelar</button>
+  </mat-card-actions>
+
+
+</mat-card>

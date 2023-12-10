@@ -1,0 +1,49 @@
+<mat-table [dataSource]="checklist" >
+  <ng-container matColumnDef="id_check">
+   <th mat-header-cell *matHeaderCellDef>Id</th>
+   <mat-cell *matCellDef="let ch">{{ch.id_check}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="embarcacao">
+    <mat-header-cell *matHeaderCellDef >Embacação</mat-header-cell>
+    <mat-cell *matCellDef="let ch" >{{ch.embarcacao.nm_embarc}}</mat-cell>
+    <mat-cell *matCellDef="let ch">{{ch.embarcacao.id_embarc}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="situacao_check">
+    <mat-header-cell *matHeaderCellDef>Situacao</mat-header-cell>
+    <mat-cell *matCellDef="let ch" [ngSwitch]="ch.situacao_check">
+      <span  [ngStyle]="{'color': 'red'}"  *ngSwitchCase="1">Pendente</span>
+      <span [ngStyle]="{'color': 'green'}" *ngSwitchCase="2">Executado</span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tipoCheck">
+    <mat-header-cell *matHeaderCellDef >Tipo</mat-header-cell>
+    <mat-cell *matCellDef="let ch"  >{{ch.tipoCheck}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions" >
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+    <button mat-mini-fab  color="primary" aria-label="Voltar"    >
+      <mat-icon>home</mat-icon>
+  </button>
+  </mat-header-cell>
+
+  <mat-header-cell *matCellDef = "let ch"  class="action-column"  >
+    <button mat-mini-fab  color="primary" aria-label="Voltar" (click)="onEdit(ch)"    >
+      <mat-icon>edit</mat-icon>
+  </button>
+  </mat-header-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+

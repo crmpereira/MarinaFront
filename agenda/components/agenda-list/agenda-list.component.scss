@@ -1,0 +1,24 @@
+.mat-table {
+  overflow: auto;
+  max-height: 50px;
+}
+
+.action-column{
+  flex: 0 0 120px;
+}
+
+
+.action-column-header{
+  flex: 0 0 95px;
+}
+
+
+.column-reg{
+  text-align: center;
+}
+
+
+.table-container {
+  max-height: 100px; /* Ajuste conforme necessário */
+  overflow-y: auto;
+}
