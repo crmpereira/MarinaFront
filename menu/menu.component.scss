@@ -1,0 +1,25 @@
+.menu-container {
+  display: inline-block;
+  position: relative;
+
+  button {
+    background-color: #13568a;
+    color: white;
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+
+  .mat-menu-panel {
+    box-shadow: 0 3px 6px rgba(202, 174, 174, 0.2);
+    border-radius: 10px;
+  }
+
+  .mat-menu-item {
+    &:hover {
+      background-color: #1182f3;
+      color: white;
+    }
+  }
+}
+
+

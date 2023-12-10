@@ -1,0 +1,18 @@
+<div class="menu-container"  >
+<button mat-button [matMenuTriggerFor]="aboveMenu3">Manutenção</button>
+<mat-menu #aboveMenu3="matMenu"  class="custom-menu"  >
+  <button mat-menu-item  (click)="navigateToRoute('/clientes')" >Clientes</button>
+  <button mat-menu-item   (click)="navigateToRoute('/agenda')"  >Agendar</button>
+  <button mat-menu-item  (click)="navigateToRoute('/checklist')" >CheckList</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="aboveMenu4">Ajuda</button>
+<mat-menu #aboveMenu4="matMenu"  class="custom-menu"  >
+  <button mat-menu-item  (click)="navigateToRoute('/usuario')"    >Sobre</button>
+</mat-menu>
+</div>
+
+
+
+
+
