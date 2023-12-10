@@ -1,0 +1,14 @@
+<p></p>
+<mat-card>
+  <mat-toolbar color="primary">Nossos Clientes</mat-toolbar>
+  <div class="colum-flex" >
+  <app-clientes-list *ngIf="cliente |async as cliente"
+  [cliente]="cliente"
+  (add)="onAdd()"
+  (edit)="onEdit($event)"
+  (remove)="onRemove($event)"
+  ></app-clientes-list>
+
+  </div>
+</mat-card>
+

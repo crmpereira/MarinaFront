@@ -1,0 +1,48 @@
+<mat-table [dataSource]="embarcacao" >
+  <ng-container matColumnDef="id_embarc">
+   <th mat-header-cell *matHeaderCellDef>Id</th>
+   <mat-cell *matCellDef="let embar">{{embar.id_embarc}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nm_embarc">
+    <mat-header-cell *matHeaderCellDef >Embarcação</mat-header-cell>
+    <mat-cell *matCellDef="let embar"  >{{embar.nm_embarc}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nrmarinha_embarc">
+    <mat-header-cell *matHeaderCellDef >Reg Marinha</mat-header-cell>
+    <mat-cell *matCellDef="let embar"  >{{embar.nrmarinha_embarc}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tipo_embarc">
+    <mat-header-cell *matHeaderCellDef>Tipo</mat-header-cell>
+    <mat-cell *matCellDef="let embar">{{embar.tipo_embarc}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cliente_id">
+    <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
+    <mat-cell *matCellDef="let embar">{{embar.cliente_id}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions" >
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+    <button mat-mini-fab  color="primary" aria-label="Adicionar"  (click)="onAdd()">
+        <mat-icon  >plus_one</mat-icon>
+    </button>
+  </mat-header-cell>
+
+  <mat-header-cell *matCellDef = "let embar"  class="action-column"  >
+    <button mat-icon-button color="primary" arial-label="Editar"  (click)="onEdit(embar)">
+      <mat-icon  >edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn"   (click)="onDelete(embar)">
+      <mat-icon arial-label="Remover"  >delete</mat-icon>
+    </button>
+  </mat-header-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+

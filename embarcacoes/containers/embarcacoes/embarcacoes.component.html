@@ -1,0 +1,27 @@
+
+<p></p>
+<mat-card>
+  <mat-toolbar color="primary">Embarcações Disponiveis</mat-toolbar>
+  <div class="colum-flex" >
+  <app-embarcacoes-list *ngIf="embarcacao |async as embarcacao"
+  [embarcacao]="embarcacao"
+  (add)="onAdd()"
+  (edit)="onEdit($event)"
+  (remove)="onRemove($event)"
+
+  ></app-embarcacoes-list>
+
+
+  <ng-template #loading>
+    <div class="loagind-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+  </div>
+
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 20]"
+              aria-label="Selecione Página">
+</mat-paginator>
+</mat-card>

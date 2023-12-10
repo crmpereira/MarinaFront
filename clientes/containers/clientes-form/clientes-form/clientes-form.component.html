@@ -1,0 +1,107 @@
+<mat-card>
+  <mat-toolbar color="primary">Cliente</mat-toolbar>
+
+  <mat-card-content>
+     <form [formGroup]="form">
+      <mat-form-field class="min-width" >
+        <input matInput placeholder="Nome" formControlName="nm_cliente" #nm_cliente>
+        <mat-hint align="end">{{nm_cliente.value || 0}} / 100</mat-hint>
+        <mat-error *ngIf="form.get('nm_cliente')?.invalid">{{formUtils.getErrorMessage(form, "nm_cliente")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="min-width" >
+        <input matInput placeholder="Endereço" formControlName="end_cliente" #end_cliente>
+        <mat-hint align="end">{{end_cliente.value || 0}} / 100</mat-hint>
+        <mat-error *ngIf="form.get('end_cliente')?.invalid">{{formUtils.getErrorMessage(form, "end_cliente")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="min-width" >
+        <input matInput placeholder="Telefone" formControlName="tel_cliente" #tel_cliente>
+        <mat-hint align="end">{{tel_cliente.value || 0}} / 13</mat-hint>
+        <mat-error *ngIf="form.get('tel_cliente')?.invalid">{{formUtils.getErrorMessage(form, "tel_cliente")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="min-width" >
+        <input matInput placeholder="Email" formControlName="email_cliente"  #email_cliente  >
+        <mat-hint align="end">{{email_cliente.value || 0}} / 50</mat-hint>
+        <mat-error *ngIf="form.get('email_cliente')?.invalid">{{formUtils.getErrorMessage(form, "email_cliente")}}</mat-error>
+      </mat-form-field>
+
+      <mat-toolbar  >
+          <span>Embarcações</span>
+          <button mat-icon-button color="accent" (click)="addNewEmbarcacao()"   >
+            <mat-icon aria-label="Adiconar Nova Embarcacao">add</mat-icon>
+          </button>
+      </mat-toolbar>
+
+      <mat-error
+        *ngIf="formUtils.isFormArrayRequired(form, 'embarcacoes')"
+        class="form-array-error"   >Adicione pelo menos uma Embarcação.
+      </mat-error>
+
+      <mat-error  class="form-array-error" >Adicione Uma Embarcação</mat-error>
+
+
+
+      <table  style="width:100%"
+              formArrayName="embarcacoes"
+              *ngFor="let embarcacao of getEmbarcacoesFormArray(); let i = index">
+
+        <tr [formGroupName]="i">
+          <td >
+            <mat-form-field class="full-width" >
+              <mat-label>Nome Embarcação</mat-label>
+              <input matInput formControlName="nm_embarc"     >
+              <mat-error *ngIf="getEmbarcacoesFormArray()[i].get('nm_embarc')?.invalid"
+              >{{
+                formUtils.getFormArrayFieldErrorMessage(form,"embarcacoes","nm_embarc",i)
+              }}</mat-error>
+            </mat-form-field>
+            <td >
+              <mat-form-field class="full-width" >
+                <mat-label>Registro Marinha</mat-label>
+                <input matInput formControlName="nrmarinha_embarc">
+                <mat-error *ngIf="getEmbarcacoesFormArray()[i].get('nrmarinha_embarc')?.invalid"
+                >{{
+                  formUtils.getFormArrayFieldErrorMessage(form,"embarcacoes","nrmarinha_embarc",i)
+                }}</mat-error>
+              </mat-form-field>
+            </td>
+
+
+            <td >
+              <mat-form-field class="full-width" >
+                <mat-label>Tipo Embarcacao</mat-label>
+                <mat-select  matInput    formControlName="tipo_embarc"  >
+                  <mat-option [value]="1">Barco</mat-option>
+                  <mat-option [value]="2">Navio</mat-option>
+                  <mat-option [value]="3">Iate</mat-option>
+                  <mat-option [value]="4">Caiaque</mat-option>
+                  <mat-option [value]="5">Jetski</mat-option>
+                  <mat-option [value]="6">Bote</mat-option>
+                </mat-select>
+                <mat-error
+                *ngIf="getEmbarcacoesFormArray()[i].get('tipo_embarc')?.invalid"
+                >{{
+                  formUtils.getFormArrayFieldErrorMessage(form,"embarcacoes","tipo_embarc",i)
+                }}</mat-error>
+              </mat-form-field>
+            </td>
+
+
+            <td  >
+              <button mat-icon-button color="warn" (click)="removeEmbarcacao(i)">
+                <mat-icon aria-label="Remover Embarcacao">delete</mat-icon>
+              </button>
+            </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions >
+    <button  mat-raised-button color="primary" matTooltip="Pressione para Salvar"  (click)="onSubmit()"  >Salvar</button>
+    <button  mat-raised-button  matTooltip="Pressione para Cancelar"  (click)="onCancel()" >Cancelar</button>
+  </mat-card-actions>
+
+
+</mat-card>
