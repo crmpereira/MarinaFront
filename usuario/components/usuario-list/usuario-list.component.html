@@ -1,0 +1,47 @@
+<mat-table [dataSource]="usuario" >
+
+  <ng-container matColumnDef="id_user">
+   <th mat-header-cell *matHeaderCellDef>Id</th>
+   <mat-cell *matCellDef="let usu">{{usu.id_user}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef >Usuario</mat-header-cell>
+    <mat-cell *matCellDef="let usu"  >{{usu.username}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="enabled">
+    <mat-header-cell *matHeaderCellDef >Situação</mat-header-cell>
+    <mat-cell *matCellDef="let usu"  >{{usu.enabled}}</mat-cell>
+  </ng-container>
+
+
+  <ng-container matColumnDef="actions" >
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+    <button mat-mini-fab  color="primary" aria-label="Adicionar" (click)="onAdd()" >
+        <mat-icon  >plus_one</mat-icon>
+    </button>
+    <button mat-mini-fab  color="primary" aria-label="Voltar" (click)="onBack()"    >
+      <mat-icon>home</mat-icon>
+  </button>
+  </mat-header-cell>
+
+  <mat-header-cell *matCellDef = "let ch"  class="action-column"  >
+    <button mat-icon-button color="primary" arial-label="Editar"   >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn"      >
+      <mat-icon arial-label="Remover"  >delete</mat-icon>
+    </button>
+  </mat-header-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Selecione a Página">
+  </mat-paginator>
+
