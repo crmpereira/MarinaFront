@@ -1,0 +1,13 @@
+[
+  {"id" :"1", "nm_embarc":"Bela Mar","tipo":"Barco",     "nr_marinha":"ABD95858", "dh_registro": "2023-01-01", "id_situacao": "Ativo"},
+  {"id" :"2", "nm_embarc":"Golfinho", "tipo":"Iate",    "nr_marinha":"FreD95858", "dh_registro": "2023-01-01", "id_situacao": "Ativo"},
+  {"id" :"3", "nm_embarc":"JorKoko",  "tipo":"Lancha",    "nr_marinha":"CX5858", "dh_registro": "2023-01-01" , "id_situacao": "Ativo" },
+  {"id" :"4", "nm_embarc":"Marinheiro 1", "tipo":"Caiaque",   "nr_marinha":"Yuo6666", "dh_registro": "2023-01-01", "id_situacao": "Inativo"},
+  {"id" :"5", "nm_embarc":"JorKoko",  "tipo":"Lancha",    "nr_marinha":"CX5858", "dh_registro": "2023-01-01" , "id_situacao": "Ativo" },
+  {"id" :"6", "nm_embarc":"JorKoko",  "tipo":"Lancha",    "nr_marinha":"CX5858", "dh_registro": "2023-01-01" , "id_situacao": "Ativo" },
+  {"id" :"7", "nm_embarc":"JorKoko",  "tipo":"Lancha",    "nr_marinha":"CX5858", "dh_registro": "2023-01-01" , "id_situacao": "Ativo" },
+  {"id" :"8", "nm_embarc":"JorKoko",  "tipo":"Lancha",    "nr_marinha":"CX5858", "dh_registro": "2023-01-01" , "id_situacao": "Ativo" }
+]
+
+
+
